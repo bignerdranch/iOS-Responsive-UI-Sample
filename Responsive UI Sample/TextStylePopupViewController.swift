@@ -24,13 +24,14 @@ private extension UISegmentedControl {
 
 }
 
-final class TextStylePopupViewController: UIViewController {
+final class TextStylePopupViewController: UIViewController, WantsSystemSpacingInStackViews {
 
     weak var textView: UITextView?
 
     @IBOutlet private var textButtons: UISegmentedControl!
     @IBOutlet private var listButtons: UISegmentedControl!
     @IBOutlet private var indentButtons: UISegmentedControl!
+    @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
 
     private let textActions = [
         ActionSpec(selector: #selector(UIResponder.toggleBoldface), title: NSLocalizedString("text-style:bold", comment: "The user wants to toggle boldface on text. (Button)"), image: #imageLiteral(resourceName: "format_style_bold")),
@@ -69,6 +70,8 @@ final class TextStylePopupViewController: UIViewController {
         for spec in indentActions.reversed() {
             indentButtons.insertSegment(spec, at: 0)
         }
+
+        configureSystemSpacingInStackViews()
     }
 
     // MARK: - Actions

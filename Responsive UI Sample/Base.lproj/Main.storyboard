@@ -6,10 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,16 +78,16 @@
                                             <constraint firstAttribute="trailing" secondItem="UPw-gB-1jc" secondAttribute="trailing" priority="999" id="prd-TU-iyF"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GKI-g2-dnm">
+                                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKI-g2-dnm">
                                         <rect key="frame" x="0.0" y="530" width="375" height="137"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lgk-Ow-wvf">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lgk-Ow-wvf">
                                                 <rect key="frame" x="12" y="12" width="351" height="52.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Trailing Margin Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e3-3Y-Mwj">
                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="14.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vmg-bX-Q5k">
@@ -101,13 +98,13 @@
                                                     </slider>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PrY-K7-Or9">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PrY-K7-Or9">
                                                 <rect key="frame" x="12" y="72.5" width="351" height="52.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Text Size Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-5a-JTC">
                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="14.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dfA-zU-w3y">
@@ -133,9 +130,11 @@
                     <connections>
                         <outlet property="childrenContainer" destination="xp5-Wz-hVP" id="SjM-u7-hfl"/>
                         <outlet property="childrenTrailingMargin" destination="prd-TU-iyF" id="SM0-Wf-Mhs"/>
-                        <outlet property="controlsContainer" destination="GKI-g2-dnm" id="yCk-CF-h4D"/>
                         <outlet property="marginSlider" destination="Vmg-bX-Q5k" id="3eV-nV-UrD"/>
                         <outlet property="textSizeSlider" destination="dfA-zU-w3y" id="VHD-vu-8Nw"/>
+                        <outletCollection property="prefersSystemSpacing" destination="GKI-g2-dnm" collectionClass="NSMutableArray" id="7Ge-SC-vCv"/>
+                        <outletCollection property="prefersSystemSpacing" destination="lgk-Ow-wvf" collectionClass="NSMutableArray" id="zIG-5D-9xU"/>
+                        <outletCollection property="prefersSystemSpacing" destination="PrY-K7-Or9" collectionClass="NSMutableArray" id="Mcw-bh-4tI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -157,7 +156,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7JE-hS-OvI">
                                 <rect key="frame" x="16" y="0.0" width="343" height="200"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l19-ct-cbw">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="lastBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l19-ct-cbw">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo 1 Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm2-Zl-DKq">
@@ -286,7 +285,7 @@ We write best-selling books that guide the mobile industry, setting the standard
                         </subviews>
                         <constraints>
                             <constraint firstItem="7JE-hS-OvI" firstAttribute="trailing" secondItem="tOn-x1-TAG" secondAttribute="trailingMargin" id="9OI-v7-u56"/>
-                            <constraint firstItem="VfS-7N-Bek" firstAttribute="firstBaseline" secondItem="Fm2-Zl-DKq" secondAttribute="baseline" constant="14" symbolType="layoutAnchor" id="HRs-wz-aJe"/>
+                            <constraint firstItem="VfS-7N-Bek" firstAttribute="top" secondItem="Fm2-Zl-DKq" secondAttribute="baseline" constant="14" id="HRs-wz-aJe"/>
                             <constraint firstItem="VfS-7N-Bek" firstAttribute="leading" secondItem="Fm2-Zl-DKq" secondAttribute="leading" id="Nid-FI-z5e"/>
                             <constraint firstAttribute="bottomMargin" secondItem="7JE-hS-OvI" secondAttribute="bottom" id="UJ7-3O-Zbo"/>
                             <constraint firstItem="7JE-hS-OvI" firstAttribute="top" secondItem="tOn-x1-TAG" secondAttribute="topMargin" id="ZKk-kf-Dm6"/>
@@ -299,6 +298,7 @@ We write best-selling books that guide the mobile industry, setting the standard
                         <outlet property="textStyleButton" destination="gMh-Xm-qik" id="w3O-qG-1Su"/>
                         <outlet property="titleHairlineHeight" destination="qUA-m6-Drk" id="QvK-qx-vyE"/>
                         <outlet property="titleLabel" destination="Fm2-Zl-DKq" id="SOK-EN-Fri"/>
+                        <outletCollection property="prefersSystemSpacing" destination="l19-ct-cbw" collectionClass="NSMutableArray" id="Igl-34-FAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZV7-UF-Fog" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -317,7 +317,7 @@ We write best-selling books that guide the mobile industry, setting the standard
                         <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rJc-oH-8Cs">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rJc-oH-8Cs">
                                 <rect key="frame" x="16" y="8" width="343" height="124"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caq-8e-bSo">
@@ -332,11 +332,11 @@ We write best-selling books that guide the mobile industry, setting the standard
                                             <action selector="onTextAction:" destination="sQ8-lR-7h6" eventType="primaryActionTriggered" id="PAh-IZ-YIp"/>
                                         </connections>
                                     </segmentedControl>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-Xm-Nz5">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-Xm-Nz5">
                                         <rect key="frame" x="0.0" y="66" width="343" height="58"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-OH-gtD">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="59"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="193" height="59"/>
                                                 <segments>
                                                     <segment title="" image="format_style_bullet_dash"/>
                                                     <segment title="" image="format_style_bullet_number"/>
@@ -347,7 +347,7 @@ We write best-selling books that guide the mobile industry, setting the standard
                                                 </connections>
                                             </segmentedControl>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmv-0l-CRR">
-                                                <rect key="frame" x="208" y="0.0" width="135" height="59"/>
+                                                <rect key="frame" x="201" y="0.0" width="142" height="59"/>
                                                 <segments>
                                                     <segment title="" image="format_style_indent_left"/>
                                                     <segment title="" image="format_style_indent_right"/>
@@ -374,11 +374,13 @@ We write best-selling books that guide the mobile industry, setting the standard
                         <outlet property="indentButtons" destination="Xmv-0l-CRR" id="czz-M0-08K"/>
                         <outlet property="listButtons" destination="EgC-OH-gtD" id="2LB-si-57R"/>
                         <outlet property="textButtons" destination="caq-8e-bSo" id="0cY-Ki-Tcz"/>
+                        <outletCollection property="prefersSystemSpacing" destination="rJc-oH-8Cs" collectionClass="NSMutableArray" id="qeD-9M-5hR"/>
+                        <outletCollection property="prefersSystemSpacing" destination="ohK-Xm-Nz5" collectionClass="NSMutableArray" id="WGs-sk-V2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEP-HU-JJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="-73"/>
+            <point key="canvasLocation" x="1681" y="-74"/>
         </scene>
         <!--Dynamic Type Example View Controller-->
         <scene sceneID="Yk7-Bj-Gsf">
@@ -395,21 +397,21 @@ We write best-selling books that guide the mobile industry, setting the standard
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="51m-zQ-g06">
                                 <rect key="frame" x="16" y="0.0" width="343" height="140"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Ac-Na-Pkp">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Ac-Na-Pkp">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo 2 Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzR-g8-zDA">
-                                                <rect key="frame" x="0.0" y="2.5" width="343" height="24"/>
+                                                <rect key="frame" x="0.0" y="3" width="343" height="24"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhb-t1-Tmd">
-                                        <rect key="frame" x="0.0" y="49" width="343" height="91"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhb-t1-Tmd">
+                                        <rect key="frame" x="0.0" y="49.5" width="343" height="90.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="lastBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wb8-Tx-xe1">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="lastBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wb8-Tx-xe1">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Demo 2 Headline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1c-FD-DAj">
@@ -427,13 +429,13 @@ We write best-selling books that guide the mobile industry, setting the standard
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo 2 Subheadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-ho-3tb">
-                                                <rect key="frame" x="0.0" y="24.5" width="343" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="24" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qob-Ll-RHA">
-                                                <rect key="frame" x="0.0" y="48.5" width="343" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="48" width="343" height="42.5"/>
                                                 <string key="text">Demo 2 Description
 Demo 2 Description</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -445,7 +447,7 @@ Demo 2 Description</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41T-0s-tm0">
-                                <rect key="frame" x="16" y="35.5" width="359" height="1"/>
+                                <rect key="frame" x="16" y="36" width="359" height="1"/>
                                 <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="gsq-bB-VxL"/>
@@ -454,7 +456,7 @@ Demo 2 Description</string>
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="41T-0s-tm0" firstAttribute="firstBaseline" secondItem="AzR-g8-zDA" secondAttribute="baseline" constant="14" symbolType="layoutAnchor" id="Ewo-pr-Cp9"/>
+                            <constraint firstItem="41T-0s-tm0" firstAttribute="top" secondItem="AzR-g8-zDA" secondAttribute="baseline" constant="14" id="Ewo-pr-Cp9"/>
                             <constraint firstItem="51m-zQ-g06" firstAttribute="leading" secondItem="QCf-kr-U4G" secondAttribute="leadingMargin" id="I3k-eb-mR7"/>
                             <constraint firstItem="41T-0s-tm0" firstAttribute="leading" secondItem="AzR-g8-zDA" secondAttribute="leading" id="bRP-Oq-6BX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="51m-zQ-g06" secondAttribute="trailing" id="gZy-gt-PNe"/>
@@ -466,6 +468,9 @@ Demo 2 Description</string>
                     <connections>
                         <outlet property="titleHairlineHeight" destination="gsq-bB-VxL" id="2J3-qk-bbC"/>
                         <outlet property="titleLabel" destination="AzR-g8-zDA" id="JEh-Fj-0Fk"/>
+                        <outletCollection property="prefersSystemSpacing" destination="6Ac-Na-Pkp" collectionClass="NSMutableArray" id="1gt-i8-Snt"/>
+                        <outletCollection property="prefersSystemSpacing" destination="Xhb-t1-Tmd" collectionClass="NSMutableArray" id="WBG-z6-m4I"/>
+                        <outletCollection property="prefersSystemSpacing" destination="wb8-Tx-xe1" collectionClass="NSMutableArray" id="1YT-i9-aFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u76-2p-Zf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -487,24 +492,24 @@ Demo 2 Description</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-Gb-OA9">
                                 <rect key="frame" x="16" y="0.0" width="343" height="85"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yl9-OS-QVo">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="15"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yl9-OS-QVo">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo 3 Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GV-fb-cX1">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" distribution="equalSpacing" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r5a-6r-Eol">
-                                        <rect key="frame" x="0.0" y="35" width="343" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="equalSpacing" alignment="firstBaseline" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="r5a-6r-Eol">
+                                        <rect key="frame" x="0.0" y="44" width="343" height="41"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwT-3e-dAb">
-                                <rect key="frame" x="16" y="24" width="359" height="1"/>
+                                <rect key="frame" x="16" y="33" width="359" height="1"/>
                                 <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="jAg-ip-DEL"/>
@@ -519,7 +524,7 @@ Demo 2 Description</string>
                             <constraint firstAttribute="trailingMargin" secondItem="FQ9-Gb-OA9" secondAttribute="trailing" id="QnP-aH-2x7"/>
                             <constraint firstAttribute="trailing" secondItem="nwT-3e-dAb" secondAttribute="trailing" id="T1d-1Y-LEH"/>
                             <constraint firstItem="FQ9-Gb-OA9" firstAttribute="top" secondItem="t45-zP-nI2" secondAttribute="top" id="kSh-6M-uej"/>
-                            <constraint firstItem="nwT-3e-dAb" firstAttribute="firstBaseline" secondItem="2GV-fb-cX1" secondAttribute="baseline" constant="14" symbolType="layoutAnchor" id="otu-P3-GzE"/>
+                            <constraint firstItem="nwT-3e-dAb" firstAttribute="top" secondItem="2GV-fb-cX1" secondAttribute="baseline" constant="14" id="otu-P3-GzE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -527,6 +532,8 @@ Demo 2 Description</string>
                         <outlet property="primaryContainer" destination="FQ9-Gb-OA9" id="OdU-GV-UNB"/>
                         <outlet property="titleHairlineHeight" destination="jAg-ip-DEL" id="wuL-2G-YNo"/>
                         <outlet property="titleLabel" destination="2GV-fb-cX1" id="Eal-1B-RzY"/>
+                        <outletCollection property="prefersSystemSpacing" destination="Yl9-OS-QVo" collectionClass="NSMutableArray" id="F9b-te-TOZ"/>
+                        <outletCollection property="prefersSystemSpacing" destination="r5a-6r-Eol" collectionClass="NSMutableArray" id="ayd-iH-CaK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxT-7A-1ka" userLabel="First Responder" sceneMemberID="firstResponder"/>

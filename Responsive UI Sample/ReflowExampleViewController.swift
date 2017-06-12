@@ -14,7 +14,7 @@ private struct ButtonSpec {
     let image: UIImage
 }
 
-final class ReflowExampleViewController: UIViewController {
+final class ReflowExampleViewController: UIViewController, WantsSystemSpacingInStackViews {
 
     private enum Constants {
         static let buttonTitlePadding: CGFloat = 6
@@ -24,6 +24,7 @@ final class ReflowExampleViewController: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var titleHairlineHeight: NSLayoutConstraint!
     @IBOutlet private var buttonContainer: UIStackView!
+    @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
 
     private enum ButtonIdentifier: String {
         case message, phone, web, favorite, share
@@ -40,6 +41,8 @@ final class ReflowExampleViewController: UIViewController {
         super.viewDidLoad()
 
         view.translatesAutoresizingMaskIntoConstraints = false
+
+        configureSystemSpacingInStackViews()
 
         for spec in buttons {
             let button = makeButton(for: spec)
@@ -88,9 +91,11 @@ final class ReflowExampleViewController: UIViewController {
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.titleEdgeInsets.left = Constants.buttonTitlePadding
+        #if swift(>=3.2)
         if #available(iOS 11.0, *) {
             button.adjustsImageSizeForAccessibilityContentSizeCategory = true
         }
+        #endif
         button.addTarget(self, action: #selector(didSelectButton), for: .primaryActionTriggered)
         return button
     }

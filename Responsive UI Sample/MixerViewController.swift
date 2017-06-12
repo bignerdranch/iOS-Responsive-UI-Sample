@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MixerViewController: UIViewController {
+class MixerViewController: UIViewController, WantsSystemSpacingInStackViews {
 
     @IBOutlet private var childrenContainer: UIView!
     @IBOutlet private var childrenTrailingMargin: NSLayoutConstraint!
-    @IBOutlet private var controlsContainer: UIView!
+    @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
     @IBOutlet private var textSizeSlider: UISlider!
     @IBOutlet private var marginSlider: UISlider!
 
@@ -30,6 +30,8 @@ class MixerViewController: UIViewController {
             topLayoutGuide.bottomAnchor.constraint(equalTo: effect.bottomAnchor)
         ])
 
+        configureSystemSpacingInStackViews()
+
         resetMarginAndSlider()
     }
 
@@ -43,15 +45,6 @@ class MixerViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
 
         resetTextSizeSlider()
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        var newInsets = controlsContainer.layoutMargins
-        newInsets.left = view.layoutMargins.left
-        newInsets.right = view.layoutMargins.right
-        controlsContainer.layoutMargins = newInsets
     }
 
     // MARK: - Text Size
