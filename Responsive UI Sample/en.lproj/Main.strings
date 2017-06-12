@@ -1,0 +1,30 @@
+/* Class = "UILabel"; text = "Demo 3 Title"; ObjectID = "2GV-fb-cX1"; */
+"2GV-fb-cX1.text" = "Reflow on Truncation";
+
+/* Class = "UILabel"; text = "Text Size Description"; ObjectID = "4oU-5a-JTC"; */
+"4oU-5a-JTC.text" = "Text Size (not editable)";
+
+/* Class = "UILabel"; text = "Trailing Margin Description"; ObjectID = "5e3-3Y-Mwj"; */
+"5e3-3Y-Mwj.text" = "Trailing Margin";
+
+/* Class = "UILabel"; text = "Demo 2 Title"; ObjectID = "AzR-g8-zDA"; */
+"AzR-g8-zDA.text" = "Dynamic Type Spacing";
+
+/* Class = "UILabel"; text = "Demo 2 Headline"; ObjectID = "E1c-FD-DAj"; */
+"E1c-FD-DAj.text" = "Twitter";
+
+/* Class = "UILabel"; text = "Demo 1 Title"; ObjectID = "Fm2-Zl-DKq"; */
+"Fm2-Zl-DKq.text" = "Text Style Popover";
+
+/* Class = "UILabel"; text = "Demo 2 Description"; ObjectID = "Qob-Ll-RHA"; */
+"Qob-Ll-RHA.text" = "@zwaldowski, @wookiee, @cbkeur, @CodingItWrong also Tweeted. Your Highlights: Big Nerd Ranch. Consectetur adipiscing elit. Cras rutrum, urna nec dignissim ultrices, purus purus vestibulum odio, nec lobortis ante erat vitae dolor. Nullam porta sit amet odio sit amet efficitur. Ut eu fermentum turpis, non viverra dolor. Curabitur ut dui erat. Vestibulum eu mauris malesuada, faucibus purus posuere, fermentum purus. Sed dictum elit vitae urna aliquet pellentesque. Duis sodales odio ac odio tempus dignissim. Proin ut convallis nisi.";
+
+/* Class = "UILabel"; text = "Demo 2 Subheadline"; ObjectID = "SF5-ho-3tb"; */
+"SF5-ho-3tb.text" = "Big Nerd Ranch tweeted: Wondering what a Big Nerd Ranch bootcamp is all about? It's an entire week of intensive coding, plus all this: http://bit.ly/BNRBoot ";
+
+/* Class = "UILabel"; text = "Demo 2 Caption"; ObjectID = "ScV-nU-9Wh"; */
+"ScV-nU-9Wh.text" = "9:42 AM";
+
+/* Class = "UILabel"; text = "Text Input Hint"; ObjectID = "WRx-99-ouT"; */
+"WRx-99-ouT.text" = "Tap to edit";
+

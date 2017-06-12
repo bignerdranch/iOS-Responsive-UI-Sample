@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  Responsive UI Sample
+
+  Created by Zachary Waldowski on 6/11/17.
+  Copyright © 2017 Big Nerd Ranch. Licensed under MIT.
+*/
+
+/* The user wants to toggle boldface on text. (Button) */
+"text-style:bold" = "Bold";
+
+/* The user wants to toggle italics on text. (Button) */
+"text-style:italic" = "Italic";
+
+/* The user wants to toggle an underline on text. (Button) */
+"text-style:underline" = "Underline";
+
+/* The user wants to toggle strikethrough on text. (Button) */
+"text-style:strike" = "Strike";
+
+/* The user wants to toggle dashes on a list. (Button) */
+"text-style:dash" = "Dashed List";
+
+/* The user wants to toggle numbers on a list. (Button) */
+"text-style:number" = "Numbered List";
+
+/* The user wants to toggle bullets on a list. (Button) */
+"text-style:bullet" = "Bulleted List";
+
+/* The user wants to increase indent on a list. (Button) */
+"text-style:indent-increase" = "Increase Indent";
+
+/* The user wants to decrease indent on a list. (Button) */
+"text-style:indent-decrease" = "Decrease Indent";
+
+/* The user wants to call us. (Button) */
+"reflow-button:phone" = "Call";
+
+/* The user wants to visit our web site. (Button) */
+"reflow-button:web" = "Website";
+
+/* The user wants to mark us as a favorite. (Button) */
+"reflow-button:favorite" = "Favorite";
+
+/* The user wants to share our contact card. (Button) */
+"reflow-button:share" = "Share";
+
+/* Informational title: one of the demo reflow button was picked. (Title) */
+"reflow-alert:title" = "Button Tapped";
+
+/* The user wants to dismiss an informational alert. (Button) */
+"generic:alert-ok" = "Dismiss";
