@@ -14,6 +14,19 @@ private struct ButtonSpec {
     let image: UIImage
 }
 
+private extension UIView {
+
+    func isClipped(along axis: UILayoutConstraintAxis) -> Bool {
+        switch axis {
+        case .horizontal:
+            return frame.width < systemLayoutSizeFitting(UILayoutFittingCompressedSize).width.rounded()
+        case .vertical:
+            return frame.height < systemLayoutSizeFitting(UILayoutFittingCompressedSize).height.rounded()
+        }
+    }
+
+}
+
 final class ReflowExampleViewController: UIViewController, WantsSystemSpacingInStackViews {
 
     private enum Constants {
@@ -43,30 +56,35 @@ final class ReflowExampleViewController: UIViewController, WantsSystemSpacingInS
         view.translatesAutoresizingMaskIntoConstraints = false
 
         configureSystemSpacingInStackViews()
+        configureButtons(for: .horizontal)
 
         for spec in buttons {
             let button = makeButton(for: spec)
             buttonContainer.addArrangedSubview(button)
         }
-
-        configureButtons(for: .horizontal)
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+
+        configureButtons(for: .horizontal)
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         titleHairlineHeight.constant = traitCollection.hairline
+
+        configureButtons(for: .horizontal)
     }
 
     // MARK: - Layout
 
-    //// STOPPING POINT:
-    //// MAKE THIS WORK
-
+    // This solution is not as high-fidelity as I'd like, as the buttons
+    // will not automatically return to their horizontal layout if the
+    // containing view becomes big enough again. Can't reset to horizontal
+    // on each layout pass because that'll infinite loop. In practice,
+    // resetting to horizontal at a few known points covers all use cases.
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -74,10 +92,10 @@ final class ReflowExampleViewController: UIViewController, WantsSystemSpacingInS
         primaryContainer.layoutIfNeeded()
         buttonContainer.layoutIfNeeded()
 
-        // Is one of the buttons clipped?
-        guard buttonContainer.arrangedSubviews.contains(where: { $0.frame.width < $0.systemLayoutSizeFitting(UILayoutFittingCompressedSize).width.rounded() }) else { return }
-
-        print("Detected truncation!")
+        // If any of the buttons are clipped, flip the axis.
+        if buttonContainer.arrangedSubviews.contains(where: { $0.isClipped(along: .horizontal) }) {
+            configureButtons(for: .vertical)
+        }
     }
 
     // MARK: - Helpers
