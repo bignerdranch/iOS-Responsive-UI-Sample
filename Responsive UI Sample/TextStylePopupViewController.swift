@@ -29,7 +29,6 @@ final class TextStylePopupViewController: UIViewController, WantsSystemSpacingIn
     weak var textView: UITextView?
 
     @IBOutlet private var textButtons: UISegmentedControl!
-    @IBOutlet private var listButtons: UISegmentedControl!
     @IBOutlet private var indentButtons: UISegmentedControl!
     @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
 
@@ -40,15 +39,9 @@ final class TextStylePopupViewController: UIViewController, WantsSystemSpacingIn
         ActionSpec(selector: #selector(ResponderExtendedStylingActions.toggleStrikethrough), title: NSLocalizedString("text-style:strike", comment: "The user wants to toggle strikethrough on text. (Button)"), image: #imageLiteral(resourceName: "format_style_strikethrough"))
     ]
 
-    private let listActions = [
-        ActionSpec(selector: #selector(ResponderExtendedStylingActions.toggleListDash), title: NSLocalizedString("text-style:dash", comment: "The user wants to toggle dashes on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_bullet_dash")),
-        ActionSpec(selector: #selector(ResponderExtendedStylingActions.toggleListNumber), title: NSLocalizedString("text-style:number", comment: "The user wants to toggle numbers on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_bullet_number")),
-        ActionSpec(selector: #selector(ResponderExtendedStylingActions.toggleListBullet), title: NSLocalizedString("text-style:bullet", comment: "The user wants to toggle bullets on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_bullet_bullets"))
-    ]
-
     private let indentActions = [
-        ActionSpec(selector: #selector(ResponderExtendedStylingActions.increaseIndent), title: NSLocalizedString("text-style:indent-increase", comment: "The user wants to increase indent on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_indent_left")),
-        ActionSpec(selector: #selector(ResponderExtendedStylingActions.decreaseIndent), title: NSLocalizedString("text-style:indent-decrease", comment: "The user wants to decrease indent on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_indent_right"))
+        ActionSpec(selector: #selector(ResponderExtendedStylingActions.decreaseIndent), title: NSLocalizedString("text-style:indent-decrease", comment: "The user wants to decrease indent on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_indent_left")),
+        ActionSpec(selector: #selector(ResponderExtendedStylingActions.increaseIndent), title: NSLocalizedString("text-style:indent-increase", comment: "The user wants to increase indent on a list. (Button)"), image: #imageLiteral(resourceName: "format_style_indent_right"))
     ]
 
     // MARK: -
@@ -59,11 +52,6 @@ final class TextStylePopupViewController: UIViewController, WantsSystemSpacingIn
         textButtons.removeAllSegments()
         for spec in textActions.reversed() {
             textButtons.insertSegment(spec, at: 0)
-        }
-
-        listButtons.removeAllSegments()
-        for spec in listActions.reversed() {
-            listButtons.insertSegment(spec, at: 0)
         }
 
         indentButtons.removeAllSegments()
@@ -83,10 +71,6 @@ final class TextStylePopupViewController: UIViewController, WantsSystemSpacingIn
 
     @IBAction private func onTextAction(_ sender: UISegmentedControl) {
         handle(textActions[sender.selectedSegmentIndex])
-    }
-
-    @IBAction private func onListAction(_ sender: UISegmentedControl) {
-        handle(listActions[sender.selectedSegmentIndex])
     }
 
     @IBAction private func onIndentAction(_ sender: UISegmentedControl) {

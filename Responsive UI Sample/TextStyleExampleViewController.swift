@@ -29,6 +29,8 @@ final class TextStyleExampleViewController: UIViewController, WantsSystemSpacing
         textInput.adjustsFontForContentSizeCategory = true
         textInput.allowsEditingTextAttributes = true
         textInput.delegate = self
+
+        addKeyCommand(UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(onEscape), discoverabilityTitle: NSLocalizedString("text-style:dismiss", comment: "Dismiss the style panel (Key command)")))
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -50,6 +52,11 @@ final class TextStyleExampleViewController: UIViewController, WantsSystemSpacing
         default:
             assertionFailure("Invalid segue")
         }
+    }
+
+    @objc private func onEscape(_ sender: Any) {
+        guard presentedViewController is TextStylePopupViewController else { return }
+        dismiss(animated: true, completion: nil)
     }
 
 }

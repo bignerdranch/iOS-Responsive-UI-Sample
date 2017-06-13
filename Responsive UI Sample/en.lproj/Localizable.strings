@@ -6,6 +6,9 @@
   Copyright © 2017 Big Nerd Ranch. Licensed under MIT.
 */
 
+/* Dismiss the style panel (Key command) */
+"text-style:dismiss" = "Dismiss";
+
 /* The user wants to toggle boldface on text. (Button) */
 "text-style:bold" = "Bold";
 
@@ -17,15 +20,6 @@
 
 /* The user wants to toggle strikethrough on text. (Button) */
 "text-style:strike" = "Strike";
-
-/* The user wants to toggle dashes on a list. (Button) */
-"text-style:dash" = "Dashed List";
-
-/* The user wants to toggle numbers on a list. (Button) */
-"text-style:number" = "Numbered List";
-
-/* The user wants to toggle bullets on a list. (Button) */
-"text-style:bullet" = "Bulleted List";
 
 /* The user wants to increase indent on a list. (Button) */
 "text-style:indent-increase" = "Increase Indent";

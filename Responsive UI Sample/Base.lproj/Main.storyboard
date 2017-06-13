@@ -335,19 +335,8 @@ We write best-selling books that guide the mobile industry, setting the standard
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-Xm-Nz5">
                                         <rect key="frame" x="0.0" y="66" width="343" height="58"/>
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-OH-gtD">
-                                                <rect key="frame" x="0.0" y="0.0" width="193" height="59"/>
-                                                <segments>
-                                                    <segment title="" image="format_style_bullet_dash"/>
-                                                    <segment title="" image="format_style_bullet_number"/>
-                                                    <segment title="" image="format_style_bullet_bullets"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="onListAction:" destination="sQ8-lR-7h6" eventType="primaryActionTriggered" id="Wk3-Qa-FoQ"/>
-                                                </connections>
-                                            </segmentedControl>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmv-0l-CRR">
-                                                <rect key="frame" x="201" y="0.0" width="142" height="59"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                                 <segments>
                                                     <segment title="" image="format_style_indent_left"/>
                                                     <segment title="" image="format_style_indent_right"/>
@@ -372,7 +361,6 @@ We write best-selling books that guide the mobile industry, setting the standard
                     <size key="freeformSize" width="375" height="140"/>
                     <connections>
                         <outlet property="indentButtons" destination="Xmv-0l-CRR" id="czz-M0-08K"/>
-                        <outlet property="listButtons" destination="EgC-OH-gtD" id="2LB-si-57R"/>
                         <outlet property="textButtons" destination="caq-8e-bSo" id="0cY-Ki-Tcz"/>
                         <outletCollection property="prefersSystemSpacing" destination="rJc-oH-8Cs" collectionClass="NSMutableArray" id="qeD-9M-5hR"/>
                         <outletCollection property="prefersSystemSpacing" destination="ohK-Xm-Nz5" collectionClass="NSMutableArray" id="WGs-sk-V2g"/>
@@ -543,9 +531,6 @@ Demo 2 Description</string>
     </scenes>
     <resources>
         <image name="format_style_bold" width="12" height="15"/>
-        <image name="format_style_bullet_bullets" width="26" height="22"/>
-        <image name="format_style_bullet_dash" width="26" height="18"/>
-        <image name="format_style_bullet_number" width="26" height="23"/>
         <image name="format_style_indent_left" width="29" height="18"/>
         <image name="format_style_indent_right" width="29" height="18"/>
         <image name="format_style_italic" width="11" height="15"/>

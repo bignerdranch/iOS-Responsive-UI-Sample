@@ -58,9 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */,
+				DB43B5BC1EEE937900413D5D /* StackViewCompatibility.swift */,
 				DB3430C91EEE85EC00024616 /* TextViewExtended.swift */,
 				DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */,
-				DB43B5BC1EEE937900413D5D /* StackViewCompatibility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

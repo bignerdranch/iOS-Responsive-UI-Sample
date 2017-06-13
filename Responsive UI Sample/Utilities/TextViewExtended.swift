@@ -10,9 +10,6 @@ import UIKit
 
 @objc protocol ResponderExtendedStylingActions: NSObjectProtocol {
     func toggleStrikethrough(_ sender: Any?)
-    func toggleListDash(_ sender: Any?)
-    func toggleListNumber(_ sender: Any?)
-    func toggleListBullet(_ sender: Any?)
     func increaseIndent(_ sender: Any?)
     func decreaseIndent(_ sender: Any?)
 }
@@ -32,12 +29,13 @@ final class ExtendedStylingTextView: UITextView, ResponderExtendedStyling {
         }
     }
 
+    // MARK: - UIResponder
+
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         switch action {
         case _ where inhibitsSelectionCommands && sender is UIMenuController:
             return false
         case #selector(ResponderExtendedStylingActions.toggleStrikethrough),
-             #selector(ResponderExtendedStylingActions.toggleListDash), #selector(ResponderExtendedStylingActions.toggleListBullet), #selector(ResponderExtendedStylingActions.toggleListNumber),
              #selector(ResponderExtendedStylingActions.increaseIndent), #selector(ResponderExtendedStylingActions.decreaseIndent):
             return isFirstResponder && isEditable ? allowsEditingTextAttributes : false
         case _ where String(describing: action).hasSuffix("showTextStyleOptions:"),
@@ -48,31 +46,96 @@ final class ExtendedStylingTextView: UITextView, ResponderExtendedStyling {
         }
     }
 
-    //// STOPPING POINT:
-    //// IMPLEMENT THESE
+    // MARK: - Actions
 
     @objc func toggleStrikethrough(_ sender: Any?) {
-        print(#function)
-    }
-
-    @objc func toggleListDash(_ sender: Any?) {
-        print(#function)
-    }
-
-    @objc func toggleListNumber(_ sender: Any?) {
-        print(#function)
-    }
-
-    @objc func toggleListBullet(_ sender: Any?) {
-        print(#function)
+        toggleAttributes(isPresent: { (attributes) -> Bool in
+            attributes[NSStrikethroughStyleAttributeName] != nil
+        }, adding: { (text, range) in
+            text.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        }, removing: { (text, range) in
+            text.removeAttribute(NSStrikethroughStyleAttributeName, range: range)
+        }, resetTypingAttributes: { (attributes) in
+            attributes.removeValue(forKey: NSStrikethroughStyleAttributeName)
+        })
     }
 
     @objc func increaseIndent(_ sender: Any?) {
-        print(#function)
+        toggleAttributes(adding: increaseIndent, removing: decreaseIndent, resetTypingAttributes: resetIndent)
     }
 
     @objc func decreaseIndent(_ sender: Any?) {
-        print(#function)
+        toggleAttributes(adding: decreaseIndent, removing: increaseIndent, resetTypingAttributes: resetIndent)
+    }
+
+}
+
+private extension ExtendedStylingTextView {
+
+    func anyAttributes(in range: NSRange, passTest body: ([String: Any]) -> Bool) -> Bool {
+        var present = false
+        textStorage.enumerateAttributes(in: range) { (attributes, range, stop) in
+            guard body(attributes) else { return }
+            present = true
+            stop.pointee = true
+        }
+        return present
+    }
+
+    func toggleAttributes(isPresent: ([String: Any]) -> Bool = { _ in false }, adding add: (NSMutableAttributedString, inout NSRange) -> Void, removing remove: (NSMutableAttributedString, inout NSRange) -> Void, resetTypingAttributes: (inout [String: Any]) -> Void) {
+        var range = selectedRange
+
+        if textStorage.length == 0 || !anyAttributes(in: range, passTest: isPresent) {
+            add(textStorage, &range)
+        } else if anyAttributes(in: range, passTest: isPresent) {
+            remove(textStorage, &range)
+        }
+
+        if range.length == 0 {
+            resetTypingAttributes(&typingAttributes)
+        }
+
+        delegate?.textViewDidChange?(self)
+    }
+
+    private static let indentation: CGFloat = 36
+
+    func increaseIndent(of text: NSMutableAttributedString, in range: inout NSRange) {
+        range = (text.string as NSString).paragraphRange(for: range)
+        text.enumerateAttribute(NSParagraphStyleAttributeName, in: range) { (paragraphStyle, range, _) in
+            let newStyle = NSMutableParagraphStyle()
+            (paragraphStyle as? NSParagraphStyle).map(newStyle.setParagraphStyle)
+
+            newStyle.headIndent += ExtendedStylingTextView.indentation
+            newStyle.firstLineHeadIndent += ExtendedStylingTextView.indentation
+
+            text.addAttribute(NSParagraphStyleAttributeName, value: newStyle, range: range)
+        }
+    }
+
+    func decreaseIndent(of text: NSMutableAttributedString, in range: inout NSRange) {
+        range = (text.string as NSString).paragraphRange(for: range)
+        text.enumerateAttribute(NSParagraphStyleAttributeName, in: range) { (paragraphStyle, range, _) in
+            let newStyle = NSMutableParagraphStyle()
+            (paragraphStyle as? NSParagraphStyle).map(newStyle.setParagraphStyle)
+
+            newStyle.headIndent = max(0, newStyle.headIndent - ExtendedStylingTextView.indentation)
+            newStyle.firstLineHeadIndent = max(0, newStyle.firstLineHeadIndent - ExtendedStylingTextView.indentation)
+
+            text.addAttribute(NSParagraphStyleAttributeName, value: newStyle, range: range)
+        }
+    }
+
+    func resetIndent(ofAttributes attributes: inout [String: Any]) {
+        let newStyle = NSMutableParagraphStyle()
+        if let currentStyle = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle {
+            newStyle.setParagraphStyle(currentStyle)
+        }
+
+        newStyle.headIndent = 0
+        newStyle.firstLineHeadIndent = 0
+
+        attributes[NSParagraphStyleAttributeName] = newStyle
     }
 
 }
