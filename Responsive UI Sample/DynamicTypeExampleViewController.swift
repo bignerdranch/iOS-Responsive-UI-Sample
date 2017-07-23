@@ -8,18 +8,15 @@
 
 import UIKit
 
-class DynamicTypeExampleViewController: UIViewController, WantsSystemSpacingInStackViews {
+class DynamicTypeExampleViewController: UIViewController {
 
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var titleHairlineHeight: NSLayoutConstraint!
-    @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.translatesAutoresizingMaskIntoConstraints = false
-
-        configureSystemSpacingInStackViews()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

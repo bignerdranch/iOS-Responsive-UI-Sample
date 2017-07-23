@@ -8,12 +8,11 @@
 
 import UIKit
 
-final class TextStyleExampleViewController: UIViewController, WantsSystemSpacingInStackViews {
+final class TextStyleExampleViewController: UIViewController {
 
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var titleHairlineHeight: NSLayoutConstraint!
     @IBOutlet fileprivate var textStyleButton: UIButton!
-    @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
     @IBOutlet fileprivate var textInput: ExtendedStylingTextView!
 
     override func viewDidLoad() {
@@ -22,8 +21,6 @@ final class TextStyleExampleViewController: UIViewController, WantsSystemSpacing
         view.translatesAutoresizingMaskIntoConstraints = false
 
         textStyleButton.isEnabled = false
-
-        configureSystemSpacingInStackViews()
 
         textInput.font = UIFont.preferredFont(forTextStyle: .body)
         textInput.adjustsFontForContentSizeCategory = true

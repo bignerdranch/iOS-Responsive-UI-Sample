@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DB3430CA1EEE85EC00024616 /* TextViewExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3430C91EEE85EC00024616 /* TextViewExtended.swift */; };
-		DB43B5BD1EEE937900413D5D /* StackViewCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43B5BC1EEE937900413D5D /* StackViewCompatibility.swift */; };
 		DB6A231F1EEE23E50022401F /* TextStylePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A231E1EEE23E50022401F /* TextStylePopupViewController.swift */; };
 		DB6A23281EEE2DF90022401F /* TraitCollectionAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */; };
 		DB6A23311EEE2E620022401F /* BackgroundBlendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */; };
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		DB33EE581EEE807900194B5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DB3430C91EEE85EC00024616 /* TextViewExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtended.swift; sourceTree = "<group>"; };
-		DB43B5BC1EEE937900413D5D /* StackViewCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewCompatibility.swift; sourceTree = "<group>"; };
 		DB6A231E1EEE23E50022401F /* TextStylePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylePopupViewController.swift; sourceTree = "<group>"; };
 		DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitCollectionAdditions.swift; sourceTree = "<group>"; };
 		DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlendingView.swift; sourceTree = "<group>"; };
@@ -58,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */,
-				DB43B5BC1EEE937900413D5D /* StackViewCompatibility.swift */,
 				DB3430C91EEE85EC00024616 /* TextViewExtended.swift */,
 				DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */,
 			);
@@ -181,7 +178,6 @@
 				DB6A23311EEE2E620022401F /* BackgroundBlendingView.swift in Sources */,
 				DBC12F561EE9F3F3000D1C36 /* MixerViewController.swift in Sources */,
 				DBB506D31EEDEBE700C3B5EF /* DynamicTypeExampleViewController.swift in Sources */,
-				DB43B5BD1EEE937900413D5D /* StackViewCompatibility.swift in Sources */,
 				DBC12F541EE9F3F3000D1C36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V94D62GXGB;
 				INFOPLIST_FILE = "Responsive UI Sample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bignerdranch.Responsive-UI-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V94D62GXGB;
 				INFOPLIST_FILE = "Responsive UI Sample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bignerdranch.Responsive-UI-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";

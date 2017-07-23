@@ -8,11 +8,10 @@
 
 import UIKit
 
-class MixerViewController: UIViewController, WantsSystemSpacingInStackViews {
+class MixerViewController: UIViewController {
 
     @IBOutlet private var childrenContainer: UIView!
     @IBOutlet private var childrenTrailingMargin: NSLayoutConstraint!
-    @IBOutlet private(set) var prefersSystemSpacing: [UIStackView]!
     @IBOutlet private var textSizeSlider: UISlider!
     @IBOutlet private var marginSlider: UISlider!
 
@@ -26,11 +25,9 @@ class MixerViewController: UIViewController, WantsSystemSpacingInStackViews {
         NSLayoutConstraint.activate([
             effect.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: effect.trailingAnchor),
-            effect.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor),
-            topLayoutGuide.bottomAnchor.constraint(equalTo: effect.bottomAnchor)
+            effect.topAnchor.constraint(equalTo: view.topAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: effect.bottomAnchor)
         ])
-
-        configureSystemSpacingInStackViews()
 
         resetMarginAndSlider()
     }
