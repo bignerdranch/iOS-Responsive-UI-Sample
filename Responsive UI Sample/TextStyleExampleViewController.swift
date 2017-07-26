@@ -79,11 +79,11 @@ extension TextStyleExampleViewController: UIPopoverPresentationControllerDelegat
     }
 
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        textInput.inhibitsSelectionCommands = true
+        textInput.refusesStandardEditingCommands = true
     }
 
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        textInput.inhibitsSelectionCommands = false
+        textInput.refusesStandardEditingCommands = false
     }
 
 }

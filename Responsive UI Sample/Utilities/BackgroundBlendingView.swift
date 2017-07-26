@@ -11,19 +11,18 @@ import UIKit
 final class BackgroundBlendingView: UIView {
 
     private let visualEffectView: UIVisualEffectView
-    private let blendingLayers: [CALayer]
+    private let blendingLayer: CALayer
 
     fileprivate init(effect: UIBlurEffect, tintColor: UIColor) {
         visualEffectView = UIVisualEffectView(effect: effect)
 
-        let sublayer = CALayer()
-        sublayer.backgroundColor = tintColor.cgColor
-        blendingLayers = [ sublayer ]
+        blendingLayer = CALayer()
+        blendingLayer.backgroundColor = tintColor.cgColor
 
         super.init(frame: .zero)
 
         addSubview(visualEffectView)
-        blendingLayers.forEach(layer.addSublayer)
+        layer.addSublayer(blendingLayer)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,10 +33,7 @@ final class BackgroundBlendingView: UIView {
         super.layoutSubviews()
 
         visualEffectView.frame = bounds
-
-        for sublayer in blendingLayers {
-            sublayer.frame = layer.bounds
-        }
+        blendingLayer.frame = layer.bounds
     }
 
 }

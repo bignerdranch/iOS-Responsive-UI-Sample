@@ -29,10 +29,6 @@ private extension UIView {
 
 final class ReflowExampleViewController: UIViewController {
 
-    private enum Constants {
-        static let buttonTitlePadding: CGFloat = 6
-    }
-
     @IBOutlet private var primaryContainer: UIStackView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var titleHairlineHeight: NSLayoutConstraint!
@@ -58,6 +54,7 @@ final class ReflowExampleViewController: UIViewController {
 
         for spec in buttons {
             let button = makeButton(for: spec)
+            button.translatesAutoresizingMaskIntoConstraints = false
             buttonContainer.addArrangedSubview(button)
         }
     }
@@ -78,10 +75,10 @@ final class ReflowExampleViewController: UIViewController {
 
     // MARK: - Layout
 
-    // This solution is not as high-fidelity as I'd like, as the buttons
+    // This solution is not as high-fidelity as one may like, as the buttons
     // will not automatically return to their horizontal layout if the
-    // containing view becomes big enough again. Can't reset to horizontal
-    // on each layout pass because that'll infinite loop. In practice,
+    // containing view becomes big enough again. We can't reset to horizontal
+    // on each layout pass because that'll loop infinitely. In practice,
     // resetting to horizontal at a few known points covers all use cases.
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -100,15 +97,13 @@ final class ReflowExampleViewController: UIViewController {
 
     private func makeButton(for spec: ButtonSpec) -> UIButton {
         let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.contentHorizontalAlignment = .left
-        button.setTitle(spec.title, for: .normal)
         button.setImage(spec.image, for: .normal)
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-        button.titleEdgeInsets.left = Constants.buttonTitlePadding
-        button.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        button.setTitle(spec.title, for: .normal)
         button.addTarget(self, action: #selector(didSelectButton), for: .primaryActionTriggered)
+        button.contentHorizontalAlignment = .leading
+        button.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
+        button.titleEdgeInsets.left = 6
         return button
     }
 

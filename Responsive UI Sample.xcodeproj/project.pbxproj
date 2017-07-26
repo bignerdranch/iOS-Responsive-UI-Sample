@@ -12,6 +12,7 @@
 		DB6A23281EEE2DF90022401F /* TraitCollectionAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */; };
 		DB6A23311EEE2E620022401F /* BackgroundBlendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */; };
 		DB91BC151EEE369D00443F64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB91BC171EEE369D00443F64 /* Localizable.strings */; };
+		DBA3B0221F25245400652C6B /* ButtonExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA3B0211F25245400652C6B /* ButtonExtended.swift */; };
 		DBB506D11EEDEBCB00C3B5EF /* TextStyleExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB506D01EEDEBCB00C3B5EF /* TextStyleExampleViewController.swift */; };
 		DBB506D31EEDEBE700C3B5EF /* DynamicTypeExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB506D21EEDEBE700C3B5EF /* DynamicTypeExampleViewController.swift */; };
 		DBB506D51EEDEBFE00C3B5EF /* ReflowExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB506D41EEDEBFE00C3B5EF /* ReflowExampleViewController.swift */; };
@@ -29,6 +30,7 @@
 		DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitCollectionAdditions.swift; sourceTree = "<group>"; };
 		DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlendingView.swift; sourceTree = "<group>"; };
 		DB91BC161EEE369D00443F64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBA3B0211F25245400652C6B /* ButtonExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtended.swift; sourceTree = "<group>"; };
 		DBB506D01EEDEBCB00C3B5EF /* TextStyleExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleExampleViewController.swift; sourceTree = "<group>"; };
 		DBB506D21EEDEBE700C3B5EF /* DynamicTypeExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTypeExampleViewController.swift; sourceTree = "<group>"; };
 		DBB506D41EEDEBFE00C3B5EF /* ReflowExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflowExampleViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				DB6A23301EEE2E620022401F /* BackgroundBlendingView.swift */,
+				DBA3B0211F25245400652C6B /* ButtonExtended.swift */,
 				DB3430C91EEE85EC00024616 /* TextViewExtended.swift */,
 				DB6A23271EEE2DF90022401F /* TraitCollectionAdditions.swift */,
 			);
@@ -178,6 +181,7 @@
 				DB6A23311EEE2E620022401F /* BackgroundBlendingView.swift in Sources */,
 				DBC12F561EE9F3F3000D1C36 /* MixerViewController.swift in Sources */,
 				DBB506D31EEDEBE700C3B5EF /* DynamicTypeExampleViewController.swift in Sources */,
+				DBA3B0221F25245400652C6B /* ButtonExtended.swift in Sources */,
 				DBC12F541EE9F3F3000D1C36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
