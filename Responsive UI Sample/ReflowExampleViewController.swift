@@ -39,10 +39,10 @@ final class ReflowExampleViewController: UIViewController {
     }
 
     private let buttons = [
-        ButtonSpec(identifier: ButtonIdentifier.phone.rawValue, title: NSLocalizedString("reflow-button:phone", comment: "The user wants to call us. (Button)"), image: #imageLiteral(resourceName: "reflow_button_any")),
-        ButtonSpec(identifier: ButtonIdentifier.web.rawValue, title: NSLocalizedString("reflow-button:web", comment: "The user wants to visit our web site. (Button)"), image: #imageLiteral(resourceName: "reflow_button_any")),
-        ButtonSpec(identifier: ButtonIdentifier.favorite.rawValue, title: NSLocalizedString("reflow-button:favorite", comment: "The user wants to mark us as a favorite. (Button)"), image: #imageLiteral(resourceName: "reflow_button_any")),
-        ButtonSpec(identifier: ButtonIdentifier.share.rawValue, title: NSLocalizedString("reflow-button:share", comment: "The user wants to share our contact card. (Button)"), image: #imageLiteral(resourceName: "reflow_button_any"))
+        ButtonSpec(identifier: ButtonIdentifier.phone.rawValue, title: NSLocalizedString("reflow-button:phone", comment: "The user wants to call us. (Button)"), image: #imageLiteral(resourceName: "reflow_button_phone")),
+        ButtonSpec(identifier: ButtonIdentifier.web.rawValue, title: NSLocalizedString("reflow-button:web", comment: "The user wants to visit our web site. (Button)"), image: #imageLiteral(resourceName: "reflow_button_web")),
+        ButtonSpec(identifier: ButtonIdentifier.favorite.rawValue, title: NSLocalizedString("reflow-button:favorite", comment: "The user wants to mark us as a favorite. (Button)"), image: #imageLiteral(resourceName: "reflow_button_favorite")),
+        ButtonSpec(identifier: ButtonIdentifier.share.rawValue, title: NSLocalizedString("reflow-button:share", comment: "The user wants to share our contact card. (Button)"), image: #imageLiteral(resourceName: "reflow_button_share"))
     ]
 
     override func viewDidLoad() {
